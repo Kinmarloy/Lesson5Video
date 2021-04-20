@@ -1,6 +1,8 @@
 package qaLesson5Video;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selenide.$x;
@@ -18,6 +20,8 @@ public class LambdaStepTest {
 
     @Test
     public void testIssueSearch (){
+        SelenideLogger.addListener("allure", new AllureSelenide());
+
         step("Открываем главную страницу", () -> {
             open(BASE_URL);
         });
